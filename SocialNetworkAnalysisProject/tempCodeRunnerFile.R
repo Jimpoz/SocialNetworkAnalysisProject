@@ -1,0 +1,1 @@
+plot(as.igraph(file_excel, directed=FALSE))
