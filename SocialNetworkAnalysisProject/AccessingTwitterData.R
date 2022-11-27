@@ -216,11 +216,11 @@ write_xlsx(data_frame_23112022, "data_frame_23112022.xlsx")
 data_frame_24112022 <- rtweet::search_tweets("Climate activists OR climate activists OR climate activist", n = 18000, retryonratelimit = TRUE) #nolint
 write_xlsx(data_frame_24112022, "data_frame_24112022.xlsx")
 
-data_frame_1_24112022 <- rtweet::search_tweets("Just Stop Oil OR just stop oil", n = 18000, retryonratelimit = TRUE) #nolint
+data_frame_1_24112022 <- rtweet::search_tweets("Just Stop Oil OR just stop oil", n = 20000, retryonratelimit = TRUE) #nolint
 write_xlsx(data_frame_1_24112022, "data_frame_1_24112022.xlsx")
 
 #27112022
-data_frame_27112022 <- rtweet::search_tweets("Climate activists OR climate activists OR climate activist OR Just Stop Oil", n = 18000, retryonratelimit = TRUE) #nolint
+data_frame_27112022 <- rtweet::search_tweets("Climate activists OR climate activists OR climate activist OR Just Stop Oil", n = 20000, retryonratelimit = TRUE) #nolint
 write_xlsx(data_frame_27112022, "data_frame_27112022.xlsx")
 
 #test grafo con il dataframe activism
