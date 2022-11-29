@@ -246,6 +246,12 @@ write_xlsx(data_frame_1_28112022, "data_frame_1_28112022.xlsx")
 data_frame_2_28112022 <- rtweet::search_tweets(tags, n = 20000, retryonratelimit = TRUE) #nolint
 write_xlsx(data_frame_2_28112022, "data_frame_2_28112022.xlsx")
 
+#29112022
+data_frame_29112022 <- rtweet::search_tweets("attivisti OR Attivisti", n = 20000, retryonratelimit = TRUE) #nolint
+write_xlsx(data_frame_29112022, "data_frame_29112022.xlsx")
+
+data_frame_1_29112022 <- rtweet::search_tweets("Ambientalisti OR ambientalisti OR crisi climatica", n = 20000, retryonratelimit = TRUE) #nolint
+write_xlsx(data_frame_1_29112022, "data_frame_1_29112022.xlsx")
 
 #test grafo con il dataframe activism
 activism <- read_excel("C:\\Users\\Jimpo\\Desktop\\SocialNetworkProject\\DataFrames\\.xlsx\\activism_no_duplicates.xlsx")
