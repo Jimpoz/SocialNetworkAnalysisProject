@@ -72,10 +72,13 @@ textdf <- (tweets_nd_df$text)
 #view(textdf) mostra solo le prime 1000 righe
 utils::View(textdf)
 
-#ritorna NA perché si verifica un errore di overflow molto probabilmente
+#ritorna NA (not available) forse un problema di overflow cauasto dalla quantità di tweet
+#    o forse causato dalla somma di altri NA
 #da correggere
 climate <- sum(str_detect(textdf, 'dumb'))
 
+#anche rimuovendo il limite di stampa non mostra nessun valore perché viene salvato come NA
+utils::View(climate)
 options(max.print=99999999)
 print(climate)
 
