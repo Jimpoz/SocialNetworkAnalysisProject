@@ -44,7 +44,7 @@ tweets_nd_df <- data.frame(tweetdatand)
 view(tweets_nd_df)
 
 #test del plot
-plot(x = tweetdatand$retweet_count,y = tweetdatand$id,
+plot(x = tweetdatand$retweet_count, y = tweetdatand$id,
      xlab = "Retweet count",
      ylab = "id",
      main = "tweets with highest retweets"
@@ -71,3 +71,12 @@ textdf <- (tweets_nd_df$text)
 
 #view(textdf) mostra solo le prime 1000 righe
 utils::View(textdf)
+
+#ritorna NA perché si verifica un errore di overflow molto probabilmente
+#da correggere
+climate <- sum(str_detect(textdf, 'dumb'))
+
+options(max.print=99999999)
+print(climate)
+
+sum(str_detect(textdf, ""))
