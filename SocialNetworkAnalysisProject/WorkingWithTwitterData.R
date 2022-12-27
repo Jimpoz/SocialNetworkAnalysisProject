@@ -83,3 +83,5 @@ options(max.print=99999999)
 print(climate)
 
 sum(str_detect(textdf, ""))
+
+#Sentiment analysis fatto prima su excel per analizzare l'indice di ogni tweet
