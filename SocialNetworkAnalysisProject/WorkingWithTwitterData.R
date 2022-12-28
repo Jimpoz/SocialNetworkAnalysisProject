@@ -85,6 +85,7 @@ print(climate)
 sum(str_detect(textdf, ""))
 
 #Sentiment analysis fatto prima su excel per analizzare l'indice di ogni tweet
+#il sentiment analysis di excel ha limiti per numero di tweet che può analizzare (max 25mb)
 
 text_only_sentiment <- read_xlsx("C:\\Users\\Jimpo\\Desktop\\SocialNetworkProject\\TweetTextOnlyAnalysis.xlsx")
 text_only_sentiment_df <- data.frame(text_only_sentiment)
