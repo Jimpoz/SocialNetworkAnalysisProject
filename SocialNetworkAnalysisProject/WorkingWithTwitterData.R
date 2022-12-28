@@ -85,3 +85,24 @@ print(climate)
 sum(str_detect(textdf, ""))
 
 #Sentiment analysis fatto prima su excel per analizzare l'indice di ogni tweet
+
+text_only_sentiment <- read_xlsx("C:\\Users\\Jimpo\\Desktop\\SocialNetworkProject\\TweetTextOnlyAnalysis.xlsx")
+text_only_sentiment_df <- data.frame(text_only_sentiment)
+
+sentimenti <- c(text_only_sentiment$Sentiment)
+testo_tweet <- c(text_only_sentiment$tweet_text)
+
+is.na(sentimenti)
+
+na.omit(sentimenti)
+na.omit(testo_tweet)
+
+utils::View(sentimenti)
+utils::View(testo_tweet)
+
+view(text_only_sentiment_df)
+
+#il plost ha limiti di dimensioni quindi bisogna settarli manualmente altrimenti ritorna errori come missing values oppure NA
+plot(x = sentimenti, y = testo_tweet, xlim = c(0,540210), ylim = c(0,540210),
+     xlab = "Sentimenti", ylab = "Numero")
+
