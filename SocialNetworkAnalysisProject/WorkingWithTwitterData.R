@@ -55,8 +55,6 @@ plot(x = tweetdatand$retweet_count, y = tweetdatand$id,
 #positive = scan('resources/twitter_sentiment_analysis/positive-words.txt', what = 'character', comment.char = ';')
 #negative = scan('resources/twitter_sentiment_analysis/negative-words.txt', what = 'character', comment.char = ';')
 
-positive <- scan()
-
 # add your list of words below as you wish if missing in above read lists
 pos.words = c(positive,'upgrade','Congrats','prizes','prize','thanks','thnx',
               'Grt','gr8','plz','trending','recovering','brainstorm','leader')
@@ -107,3 +105,24 @@ view(text_only_sentiment_df)
 plot(x = sentimenti, y = testo_tweet, xlim = c(0,540210), ylim = c(0,540210),
      xlab = "Sentimenti", ylab = "Numero")
 
+#trovare quanti sono le ricorrenze dei sentimenti
+positive_texts <- sum(text_only_sentiment_df$Sentiment == "positive")
+negative_texts <- sum(text_only_sentiment_df$Sentiment == "negative")
+neutral_texts <- sum(text_only_sentiment_df$Sentiment == "neutral")
+
+#controllare il numero di ognuno
+positive_texts
+negative_texts
+neutral_texts
+
+#esempio di barblot per raccogliere i sentimenti positivi, negativi e neutri per poi paragonare la differenza
+#l'algoritmo non essendo perfetto può presentare alcuni errori
+
+bars <- c(positive_texts, neutral_texts, negative_texts)
+
+barplot(bars, ylim=c(0,250000), names.arg=c("Positive", "Neutral", "Negative"))
+
+#dati ricavati tramite il sentiment analysis di excel ossia Azure Machine Learning
+#lo strumento add-in non risulta molto affidabile quindi il grafico di questi dati è una rappresentazione imprecisa dei dati
+
+#riprovare sentiment analysis tramite strumenti di R
