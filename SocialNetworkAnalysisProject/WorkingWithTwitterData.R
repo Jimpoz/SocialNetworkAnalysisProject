@@ -146,15 +146,19 @@ barplot(bars, ylim=c(0,250000), names.arg=c("Positive", "Neutral", "Negative"))
 #riprovare sentiment analysis tramite strumenti di R
 
 
-
-
-
-
-
-#creazione grafo con cluster in r
-
-mydata = select(text_only_sentiment_df,c(tweet_text, Sentiment, Score))
-
-wssplot(mydata)
+counter <- function(){
+     sent_score <- text_only_sentiment$Score
+     temp=0
+     numbers
+     for(i in 0.001:1.000){
+          for(j in 1:sent_score){
+               if(sent_score[j]==i){
+                    temp <- temp+1;
+               }
+               numbers <- append(temp);
+          }
+     }
+}
 
 ggplot(data=text_only_sentiment, mapping = aes(x=text_only_sentiment$Score, y = text_only_sentiment$tweet_text))
+
