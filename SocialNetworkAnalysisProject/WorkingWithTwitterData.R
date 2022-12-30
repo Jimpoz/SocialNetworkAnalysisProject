@@ -7,7 +7,17 @@ install.packages("ggeasy")
 install.packages("plotly")
 install.packages("widyr")
 install.packages("magrittr")
+install.packages("ISLR")
+install.packages("cluster")
+install.packages("Rtsne")
+install.packages("stats")
+install.packages("ggfortify")
 
+library(ggfortify)
+library(stats)
+library(Rtsne)
+library(cluster)
+library(ISLR)
 library(twitteR)
 library(ROAuth)
 library(hms)
@@ -24,14 +34,15 @@ library(stringr)
 library(ggplot2)
 library(ggeasy)
 library(plotly)
-library(dplyr)  
+library(dplyr)
 library(hms)
-library(lubridate) 
+library(lubridate)
 library(magrittr)
 library(tidyverse)
 library(janeaustenr)
 library(widyr)
 library(readxl)
+
 
 #Converte file excel in un data frame
 tweetdata <- read_xlsx("C:\\Users\\Jimpo\\Desktop\\SocialNetworkProject\\TweetTotali.xlsx")
@@ -50,6 +61,13 @@ plot(x = tweetdatand$retweet_count, y = tweetdatand$id,
      main = "tweets with highest retweets"
 )
 
+barplot(tweetdatand$retweet_count,# y = tweetdatand$id,
+     xlab = "Retweet count",
+     main = "tweets with highest retweets",
+     #horiz = TRUE,
+     ylim = c(0,250000),
+     xlim = c(0,100000) 
+)
 #SENTIMENT ANALYSIS DA CAPIRE COME STRUTTURARE
 
 #positive = scan('resources/twitter_sentiment_analysis/positive-words.txt', what = 'character', comment.char = ';')
@@ -126,3 +144,17 @@ barplot(bars, ylim=c(0,250000), names.arg=c("Positive", "Neutral", "Negative"))
 #lo strumento add-in non risulta molto affidabile quindi il grafico di questi dati è una rappresentazione imprecisa dei dati
 
 #riprovare sentiment analysis tramite strumenti di R
+
+
+
+
+
+
+
+#creazione grafo con cluster in r
+
+mydata = select(text_only_sentiment_df,c(tweet_text, Sentiment, Score))
+
+wssplot(mydata)
+
+ggplot(data=text_only_sentiment, mapping = aes(x=text_only_sentiment$Score, y = text_only_sentiment$tweet_text))
