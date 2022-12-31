@@ -114,31 +114,18 @@ is.na(sentimenti)
 na.omit(sentimenti)
 na.omit(testo_tweet)
 
-utils::View(sentimenti)
-utils::View(testo_tweet)
-
-view(text_only_sentiment_df)
-
 #il plst ha limiti di dimensioni quindi bisogna settarli manualmente altrimenti ritorna errori come missing values oppure NA
-plot(x = sentimenti, y = testo_tweet, xlim = c(0,540210), ylim = c(0,540210),
-     xlab = "Sentimenti", ylab = "Numero")
-
 #trovare quanti sono le ricorrenze dei sentimenti
 positive_texts <- sum(text_only_sentiment_df$Sentiment == "positive")
 negative_texts <- sum(text_only_sentiment_df$Sentiment == "negative")
 neutral_texts <- sum(text_only_sentiment_df$Sentiment == "neutral")
-
-#controllare il numero di ognuno
-positive_texts
-negative_texts
-neutral_texts
 
 #esempio di barblot per raccogliere i sentimenti positivi, negativi e neutri per poi paragonare la differenza
 #l'algoritmo non essendo perfetto può presentare alcuni errori
 
 bars <- c(positive_texts, neutral_texts, negative_texts)
 
-barplot(bars, ylim=c(0,250000), names.arg=c("Positive", "Neutral", "Negative"))
+barplot(bars, ylim=c(0,250000), names.arg=c("Positive", "Neutral", "Negative"), main = "Emotions", col=c("green", "grey", "red"))
 
 #Mostrare il grafico del numero di ricorrenze per ogni valore del sentimento
 #la funzione xaxt = 'n' rimuove i valori dall'asse delle x
