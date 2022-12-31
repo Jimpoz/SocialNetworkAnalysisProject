@@ -119,7 +119,7 @@ utils::View(testo_tweet)
 
 view(text_only_sentiment_df)
 
-#il plost ha limiti di dimensioni quindi bisogna settarli manualmente altrimenti ritorna errori come missing values oppure NA
+#il plst ha limiti di dimensioni quindi bisogna settarli manualmente altrimenti ritorna errori come missing values oppure NA
 plot(x = sentimenti, y = testo_tweet, xlim = c(0,540210), ylim = c(0,540210),
      xlab = "Sentimenti", ylab = "Numero")
 
@@ -140,25 +140,25 @@ bars <- c(positive_texts, neutral_texts, negative_texts)
 
 barplot(bars, ylim=c(0,250000), names.arg=c("Positive", "Neutral", "Negative"))
 
+#Mostrare il grafico del numero di ricorrenze per ogni valore del sentimento
+#la funzione xaxt = 'n' rimuove i valori dall'asse delle x
+
+#Creazione del plot
+
+plot(
+     xaxt="n",
+     xlab = "Sentiment Score",
+     ylab = "",
+     x=table(text_only_sentiment$Score),
+     main = "Number of Occurrences"
+     )
+
+#Modifico i valori dell'asse x per evitare confusioni nella lettura del grafico
+# las=1 mostra i valori in orizzontale
+# las=2 mostra i valori in verticale
+axis(1, xaxp=c(0.001,1.000,2), las=1)
+
 #dati ricavati tramite il sentiment analysis di excel ossia Azure Machine Learning
 #lo strumento add-in non risulta molto affidabile quindi il grafico di questi dati è una rappresentazione imprecisa dei dati
 
-#riprovare sentiment analysis tramite strumenti di R
-
-
-counter <- function(){
-     sent_score <- text_only_sentiment$Score
-     temp=0
-     numbers
-     for(i in 0.001:1.000){
-          for(j in 1:sent_score){
-               if(sent_score[j]==i){
-                    temp <- temp+1;
-               }
-               numbers <- append(temp);
-          }
-     }
-}
-
-ggplot(data=text_only_sentiment, mapping = aes(x=text_only_sentiment$Score, y = text_only_sentiment$tweet_text))
-
+#Riprovare sentiment analysis tramite strumenti di R
