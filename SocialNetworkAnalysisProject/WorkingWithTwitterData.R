@@ -1,18 +1,3 @@
-install.packages("ROAuth")
-install.packages("tm")
-install.packages("wordcloud")
-install.packages("networkD3")
-install.packages("plyr")
-install.packages("ggeasy")
-install.packages("plotly")
-install.packages("widyr")
-install.packages("magrittr")
-install.packages("ISLR")
-install.packages("cluster")
-install.packages("Rtsne")
-install.packages("stats")
-install.packages("ggfortify")
-
 library(ggfortify)
 library(stats)
 library(Rtsne)
@@ -43,16 +28,9 @@ library(janeaustenr)
 library(widyr)
 library(readxl)
 
-
-#Converte file excel in un data frame
-tweetdata <- read_xlsx("C:\\Users\\Jimpo\\Desktop\\SocialNetworkProject\\TweetTotali.xlsx")
-view(tweetdata)
-
-tweetsdf <- data.frame(tweetdata)
-
+#Lettura di un file excel e trasformato in un dataframe
 tweetdatand <- read_xlsx("C:\\Users\\Jimpo\\Documents\\TweetRaccolitNoDuplicati.xlsx")
 tweets_nd_df <- data.frame(tweetdatand)
-view(tweets_nd_df)
 
 #test del plot
 plot(x = tweetdatand$retweet_count, y = tweetdatand$id,
@@ -68,30 +46,8 @@ barplot(tweetdatand$retweet_count,# y = tweetdatand$id,
      ylim = c(0,250000),
      xlim = c(0,100000) 
 )
+
 #SENTIMENT ANALYSIS DA CAPIRE COME STRUTTURARE
-
-#positive = scan('resources/twitter_sentiment_analysis/positive-words.txt', what = 'character', comment.char = ';')
-#negative = scan('resources/twitter_sentiment_analysis/negative-words.txt', what = 'character', comment.char = ';')
-
-# add your list of words below as you wish if missing in above read lists
-pos.words = c(positive,'upgrade','Congrats','prizes','prize','thanks','thnx',
-              'Grt','gr8','plz','trending','recovering','brainstorm','leader')
-neg.words = c(negative,'wtf','wait','waiting','epicfail','Fight','fighting',
-              'arrest','no','not')
-
-# barplot che mostra le parole più usate, da capire come usare
-barplot(tweets_nd_df[1:5]$text, las =2, names.arg = tweets_nd_df[1:5]$text, col="blue", main="Most frequent words", ylab ="Word frequencies")
-
-# create un nuovo dataframe che contenga solo i testi dei tweet
-textdf <- (tweets_nd_df$text)
-
-#view(textdf) mostra solo le prime 1000 righe
-utils::View(textdf)
-
-#ritorna NA (not available) forse un problema di overflow cauasto dalla quantità di tweet
-#    o forse causato dalla somma di altri NA
-#da correggere
-climate <- sum(str_detect(textdf, 'dumb'))
 
 #anche rimuovendo il limite di stampa non mostra nessun valore perché viene salvato come NA
 utils::View(climate)
@@ -100,19 +56,11 @@ print(climate)
 
 sum(str_detect(textdf, ""))
 
-#Sentiment analysis fatto prima su excel per analizzare l'indice di ogni tweet
+#Sentiment analysis fatto prima su excel per analizzare lo score di ogni tweet
 #il sentiment analysis di excel ha limiti per numero di tweet che può analizzare (max 25mb)
 
 text_only_sentiment <- read_xlsx("C:\\Users\\Jimpo\\Desktop\\SocialNetworkProject\\TweetTextOnlyAnalysis.xlsx")
 text_only_sentiment_df <- data.frame(text_only_sentiment)
-
-sentimenti <- c(text_only_sentiment$Sentiment)
-testo_tweet <- c(text_only_sentiment$tweet_text)
-
-is.na(sentimenti)
-
-na.omit(sentimenti)
-na.omit(testo_tweet)
 
 #il plst ha limiti di dimensioni quindi bisogna settarli manualmente altrimenti ritorna errori come missing values oppure NA
 #trovare quanti sono le ricorrenze dei sentimenti
@@ -127,7 +75,7 @@ bars <- c(positive_texts, neutral_texts, negative_texts)
 
 barplot(bars, ylim=c(0,250000), names.arg=c("Positive", "Neutral", "Negative"), main = "Emotions", col=c("green", "grey", "red"))
 
-#Mostrare il grafico del numero di ricorrenze per ogni valore del sentimento
+#Mostrare il grafico del numero di ricorrenze per ogni Score
 #la funzione xaxt = 'n' rimuove i valori dall'asse delle x
 
 #Creazione del plot
