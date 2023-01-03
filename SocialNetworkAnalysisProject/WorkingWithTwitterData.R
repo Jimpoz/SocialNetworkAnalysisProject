@@ -47,14 +47,11 @@ barplot(tweetdatand$retweet_count,# y = tweetdatand$id,
      xlim = c(0,100000) 
 )
 
+#Plot che mostra il numero di tweet per ora
+
+plot(ylab="", x=table(tweetdatand$created_at), ylim = c(0,30))
+
 #SENTIMENT ANALYSIS DA CAPIRE COME STRUTTURARE
-
-#anche rimuovendo il limite di stampa non mostra nessun valore perché viene salvato come NA
-utils::View(climate)
-options(max.print=99999999)
-print(climate)
-
-sum(str_detect(textdf, ""))
 
 #Sentiment analysis fatto prima su excel per analizzare lo score di ogni tweet
 #il sentiment analysis di excel ha limiti per numero di tweet che può analizzare (max 25mb)
@@ -97,3 +94,4 @@ axis(1, xaxp=c(0.001,1.000,2), las=1)
 #lo strumento add-in non risulta molto affidabile quindi il grafico di questi dati è una rappresentazione imprecisa dei dati
 
 #Riprovare sentiment analysis tramite strumenti di R
+
