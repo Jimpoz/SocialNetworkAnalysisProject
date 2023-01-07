@@ -95,7 +95,11 @@ axis(1, xaxp=c(0.001,1.000,2), las=1)
 #i dati con cui abbiamo lavorato contengono tutti i tweet che discutono del tema
 #creazione dataframe che contenga tweet riguardanti il movimento Just Stop Oil oppure The Last Generation oppure gli attacchi alle opere d'arte
 
+#per evitare di creare conflitti con troppi OR creeremo più dataframe per poi unirli
 tweets_regarding_movement <- tweetdatand[grep("#JustStopOil", tweetdatand$full_text),]
-view(tweets_regarding_movement)
+tweets_regarding_movement_1 <- tweetdatand[grep("Just Stop Oil", tweetdatand$full_text),]
+tweets_regarding_movement_2 <- tweetdatand[grep("#VanGogh", tweetdatand$full_text),]
+
+#controllare con le view i dataframe ricavati
 
 #Riprovare sentiment analysis tramite strumenti di R
