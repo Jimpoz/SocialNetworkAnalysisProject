@@ -92,6 +92,10 @@ axis(1, xaxp=c(0.001,1.000,2), las=1)
 
 #dati ricavati tramite il sentiment analysis di excel ossia Azure Machine Learning
 #lo strumento add-in non risulta molto affidabile quindi il grafico di questi dati è una rappresentazione imprecisa dei dati
+#i dati con cui abbiamo lavorato contengono tutti i tweet che discutono del tema
+#creazione dataframe che contenga tweet riguardanti il movimento Just Stop Oil oppure The Last Generation oppure gli attacchi alle opere d'arte
+
+tweets_regarding_movement <- tweetdatand[grep("#JustStopOil", tweetdatand$full_text),]
+view(tweets_regarding_movement)
 
 #Riprovare sentiment analysis tramite strumenti di R
-
