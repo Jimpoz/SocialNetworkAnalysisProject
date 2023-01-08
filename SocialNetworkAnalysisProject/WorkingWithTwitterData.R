@@ -104,16 +104,37 @@ tweets_regarding_movement_3 <- tweetdatand[grep("#ClaudeMonet", tweetdatand$full
 tweets_regarding_movement_4 <- tweetdatand[grep("#Monet", tweetdatand$full_text),]
 tweets_regarding_movement_5 <- tweetdatand[grep("#LastGeneration", tweetdatand$full_text),]
 tweets_regarding_movement_6 <- tweetdatand[grep("paint", tweetdatand$full_text),]
+tweets_regarding_movement_7 <- tweetdatand[grep("Oil", tweetdatand$full_text),]
+tweets_regarding_movement_8 <- tweetdatand[grep("oil", tweetdatand$full_text),]
+
+#Eliminare una colonna specifica settandola a NULL
+#la colonna Source.Name conteneva nomi uguali per vari tweet causando errori
+tweets_regarding_movement$Source.Name <- NULL
+tweets_regarding_movement_1$Source.Name <- NULL
+tweets_regarding_movement_2$Source.Name <- NULL
+tweets_regarding_movement_3$Source.Name <- NULL
+tweets_regarding_movement_4$Source.Name <- NULL
+tweets_regarding_movement_5$Source.Name <- NULL
+tweets_regarding_movement_6$Source.Name <- NULL
+tweets_regarding_movement_7$Source.Name <- NULL
+tweets_regarding_movement_8$Source.Name <- NULL
 
 #combinare vari dataframe direttamente in r sembra non funzionare quindi convertirli prima in file excel per poi fare il merge
-write_xlsx(tweets_regarding_movement, "C:\\Users\\Jimpo\\Desktop\\SocialNetworkProject\\tweets_regarding_movement.xlsx")
-write_xlsx(tweets_regarding_movement_1, "C:\\Users\\Jimpo\\Desktop\\SocialNetworkProject\\tweets_regarding_movement_1.xlsx")
-write_xlsx(tweets_regarding_movement_2, "C:\\Users\\Jimpo\\Desktop\\SocialNetworkProject\\tweets_regarding_movement_2.xlsx")
-write_xlsx(tweets_regarding_movement_3, "C:\\Users\\Jimpo\\Desktop\\SocialNetworkProject\\tweets_regarding_movement_3.xlsx")
-write_xlsx(tweets_regarding_movement_4, "C:\\Users\\Jimpo\\Desktop\\SocialNetworkProject\\tweets_regarding_movement_4.xlsx")
-write_xlsx(tweets_regarding_movement_5, "C:\\Users\\Jimpo\\Desktop\\SocialNetworkProject\\tweets_regarding_movement_5.xlsx")
-write_xlsx(tweets_regarding_movement_6, "C:\\Users\\Jimpo\\Desktop\\SocialNetworkProject\\tweets_regarding_movement_6.xlsx")
+write_xlsx(tweets_regarding_movement, "C:\\Users\\Jimpo\\Desktop\\SocialNetworkProject\\MovementTweets\\tweets_regarding_movement.xlsx")
+write_xlsx(tweets_regarding_movement_1, "C:\\Users\\Jimpo\\Desktop\\SocialNetworkProject\\MovementTweets\\tweets_regarding_movement_1.xlsx")
+write_xlsx(tweets_regarding_movement_2, "C:\\Users\\Jimpo\\Desktop\\SocialNetworkProject\\MovementTweets\\tweets_regarding_movement_2.xlsx")
+write_xlsx(tweets_regarding_movement_3, "C:\\Users\\Jimpo\\Desktop\\SocialNetworkProject\\MovementTweets\\tweets_regarding_movement_3.xlsx")
+write_xlsx(tweets_regarding_movement_4, "C:\\Users\\Jimpo\\Desktop\\SocialNetworkProject\\MovementTweets\\tweets_regarding_movement_4.xlsx")
+write_xlsx(tweets_regarding_movement_5, "C:\\Users\\Jimpo\\Desktop\\SocialNetworkProject\\MovementTweets\\tweets_regarding_movement_5.xlsx")
+write_xlsx(tweets_regarding_movement_6, "C:\\Users\\Jimpo\\Desktop\\SocialNetworkProject\\MovementTweets\\tweets_regarding_movement_6.xlsx")
+write_xlsx(tweets_regarding_movement_7, "C:\\Users\\Jimpo\\Desktop\\SocialNetworkProject\\MovementTweets\\tweets_regarding_movement_7.xlsx")
+write_xlsx(tweets_regarding_movement_8, "C:\\Users\\Jimpo\\Desktop\\SocialNetworkProject\\MovementTweets\\tweets_regarding_movement_8.xlsx")
 
-#controllare con le view i dataframe ricavati
+movtweets <- read_xlsx("C:\\Users\\Jimpo\\Desktop\\SocialNetworkProject\\MovTweetsSentiment.xlsx")
+mt_positive <- sum(movtweets$Sentiment=="positive")
+mt_negative <- sum(movtweets$Sentiment=="negative")
+mt_neutral <- sum(movtweets$Sentiment=="neutral")
 
+mbars <- c(mt_positive, mt_neutral, mt_negative)
+barplot(mbars, ylim=c(0,200000), names.arg=c("Positive", "Neutral", "Negative"), main = "Emotions", col=c("green", "grey", "red"))
 #Riprovare sentiment analysis tramite strumenti di R
