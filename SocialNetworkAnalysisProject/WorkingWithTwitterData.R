@@ -27,6 +27,7 @@ library(tidyverse)
 library(janeaustenr)
 library(widyr)
 library(readxl)
+library(writexl)
 
 #Lettura di un file excel e trasformato in un dataframe
 tweetdatand <- read_xlsx("C:\\Users\\Jimpo\\Documents\\TweetRaccolitNoDuplicati.xlsx")
@@ -99,6 +100,19 @@ axis(1, xaxp=c(0.001,1.000,2), las=1)
 tweets_regarding_movement <- tweetdatand[grep("#JustStopOil", tweetdatand$full_text),]
 tweets_regarding_movement_1 <- tweetdatand[grep("Just Stop Oil", tweetdatand$full_text),]
 tweets_regarding_movement_2 <- tweetdatand[grep("#VanGogh", tweetdatand$full_text),]
+tweets_regarding_movement_3 <- tweetdatand[grep("#ClaudeMonet", tweetdatand$full_text),]
+tweets_regarding_movement_4 <- tweetdatand[grep("#Monet", tweetdatand$full_text),]
+tweets_regarding_movement_5 <- tweetdatand[grep("#LastGeneration", tweetdatand$full_text),]
+tweets_regarding_movement_6 <- tweetdatand[grep("paint", tweetdatand$full_text),]
+
+#combinare vari dataframe direttamente in r sembra non funzionare quindi convertirli prima in file excel per poi fare il merge
+write_xlsx(tweets_regarding_movement, "C:\\Users\\Jimpo\\Desktop\\SocialNetworkProject\\tweets_regarding_movement.xlsx")
+write_xlsx(tweets_regarding_movement_1, "C:\\Users\\Jimpo\\Desktop\\SocialNetworkProject\\tweets_regarding_movement_1.xlsx")
+write_xlsx(tweets_regarding_movement_2, "C:\\Users\\Jimpo\\Desktop\\SocialNetworkProject\\tweets_regarding_movement_2.xlsx")
+write_xlsx(tweets_regarding_movement_3, "C:\\Users\\Jimpo\\Desktop\\SocialNetworkProject\\tweets_regarding_movement_3.xlsx")
+write_xlsx(tweets_regarding_movement_4, "C:\\Users\\Jimpo\\Desktop\\SocialNetworkProject\\tweets_regarding_movement_4.xlsx")
+write_xlsx(tweets_regarding_movement_5, "C:\\Users\\Jimpo\\Desktop\\SocialNetworkProject\\tweets_regarding_movement_5.xlsx")
+write_xlsx(tweets_regarding_movement_6, "C:\\Users\\Jimpo\\Desktop\\SocialNetworkProject\\tweets_regarding_movement_6.xlsx")
 
 #controllare con le view i dataframe ricavati
 
