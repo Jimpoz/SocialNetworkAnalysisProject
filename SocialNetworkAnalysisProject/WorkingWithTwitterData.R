@@ -138,4 +138,13 @@ mt_neutral <- sum(movtweets$Sentiment=="neutral")
 mbars <- c(mt_positive, mt_neutral, mt_negative)
 barplot(mbars, ylim=c(0,200000), names.arg=c("Positive", "Neutral", "Negative"), main = "Emotions", col=c("green", "grey", "red"))
 #i sentimenti negativi superano quelli positivi di 1018
-#Riprovare sentiment analysis tramite strumenti di R
+
+#creare un grafo bipartita
+bip_df <- text_only_sentiment_df;
+
+edges <- as.matrix(bip_df[c("Sentiment", "Score")])
+
+g <- graph.bipartite(edges)
+
+#g <- graph_from_edgelist(edges, directed=FALSE, mode = "bipartite")
+
