@@ -142,9 +142,10 @@ barplot(mbars, ylim=c(0,200000), names.arg=c("Positive", "Neutral", "Negative"),
 #creare un grafo bipartita
 bip_df <- text_only_sentiment_df;
 
-edges <- as.matrix(bip_df[c("Sentiment", "Score")])
+g <- graph.data.frame(bip_df, directed = FALSE)
 
-g <- graph.bipartite(edges)
+bipartite.mapping(g)
 
-#g <- graph_from_edgelist(edges, directed=FALSE, mode = "bipartite")
+V(g)$type <- bipartite.mapping(g)$type
 
+plot(g)
