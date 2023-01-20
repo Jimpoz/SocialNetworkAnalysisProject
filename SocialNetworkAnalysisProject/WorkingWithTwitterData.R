@@ -141,3 +141,4 @@ barplot(mbars, ylim=c(0,200000), names.arg=c("Positive", "Neutral", "Negative"),
 #i sentimenti negativi superano quelli positivi di 1018
 
 #conversione da file xlsx a file csv
+#non convertire direttamente ma trasforma in dataframe poi scrivere in csv
