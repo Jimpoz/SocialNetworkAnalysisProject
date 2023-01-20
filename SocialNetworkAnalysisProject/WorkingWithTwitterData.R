@@ -28,6 +28,7 @@ library(janeaustenr)
 library(widyr)
 library(readxl)
 library(writexl)
+library(rjson)
 
 #Lettura di un file excel e trasformato in un dataframe
 tweetdatand <- read_xlsx("C:\\Users\\Jimpo\\Documents\\TweetRaccolitNoDuplicati.xlsx")
@@ -139,13 +140,4 @@ mbars <- c(mt_positive, mt_neutral, mt_negative)
 barplot(mbars, ylim=c(0,200000), names.arg=c("Positive", "Neutral", "Negative"), main = "Emotions", col=c("green", "grey", "red"))
 #i sentimenti negativi superano quelli positivi di 1018
 
-#creare un grafo bipartita
-bip_df <- text_only_sentiment_df;
-
-g <- graph.data.frame(bip_df, directed = FALSE)
-
-bipartite.mapping(g)
-
-V(g)$type <- bipartite.mapping(g)$type
-
-plot(g)
+#conversione da file xlsx a file csv
