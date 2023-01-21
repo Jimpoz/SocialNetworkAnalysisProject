@@ -8,5 +8,5 @@ import plotly.graph_objs as go
 from IPython.display import display
 
 
-TweetsXLSX = pd.read_excel("C:\\Users\\Jimpo\\Desktop\\SNAgithub\\SocialNetworkAnalysisProject\\Dataframes\\xlsx\\TweetTotali.xlsx")
-display(TweetsXLSX)
+#TweetsXLSX = pd.read_excel("C:\\Users\\Jimpo\\Desktop\\SNAgithub\\SocialNetworkAnalysisProject\\Dataframes\\xlsx\\TweetTotali.xlsx")
+#display(TweetsXLSX)
