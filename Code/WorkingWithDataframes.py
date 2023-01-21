@@ -5,6 +5,8 @@ import pandas as pd
 import cufflinks as cf
 import plotly
 import plotly.graph_objs as go
+from IPython.display import display
 
 
-TweetsFrequencyDF <- pd.read_excel('C:\Users\Jimpo\Desktop\SNAgithub\SocialNetworkAnalysisProject\SocialNetworkAnalysisProject\Dataframes\xlsx\TweetTotali.xsx')
+TweetsXLSX = pd.read_excel("C:\\Users\\Jimpo\\Desktop\\SNAgithub\\SocialNetworkAnalysisProject\\Dataframes\\xlsx\\TweetTotali.xlsx")
+display(TweetsXLSX)
