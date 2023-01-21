@@ -159,4 +159,4 @@ write.csv( ttoa,"C:\\Users\\Jimpo\\Desktop\\SocialNetworkProject\\ttoa.csv")
 write.csv( tt,"C:\\Users\\Jimpo\\Desktop\\SocialNetworkProject\\tt.csv")
 
 mtdfJSON <- toJSON(mtdf)
-jsonlite::write_json(mtdfJSON, "C:\\Users\\Jimpo\\Desktop\\SocialNetworkProject\\mtdfJSON.json")
+jsonlite::write_json(mtdfJSON, "C:\\Users\\Jimpo\\Desktop\\SocialNetworkProject\\mtdfJSON.json") #pesa 350mb
