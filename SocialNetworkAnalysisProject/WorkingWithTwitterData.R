@@ -142,3 +142,21 @@ barplot(mbars, ylim=c(0,200000), names.arg=c("Positive", "Neutral", "Negative"),
 
 #conversione da file xlsx a file csv
 #non convertire direttamente ma trasforma in dataframe poi scrivere in csv
+
+MovTweets <- read_xlsx('C:\\Users\\Jimpo\\Desktop\\SocialNetworkProject\\MovTweets.xlsx')
+MovTweetsSentiment <- read_xlsx('C:\\Users\\Jimpo\\Desktop\\SocialNetworkProject\\MovTweetsSentiment.xlsx')
+TweetTextOnlyAnalysis <- read_xlsx('C:\\Users\\Jimpo\\Desktop\\SocialNetworkProject\\TweetTextOnlyAnalysis.xlsx')
+TweetTotali <- read_xlsx('C:\\Users\\Jimpo\\Desktop\\SocialNetworkProject\\TweetTotali.xlsx')
+
+mtdf <- data.frame(MovTweets)
+mtsdf <- data.frame(MovTweetsSentiment)
+ttoa <- data.frame(TweetTextOnlyAnalysis)
+tt <- data.frame(TweetTotali)
+
+write.csv( mtdf,"C:\\Users\\Jimpo\\Desktop\\SocialNetworkProject\\mtdf.csv")
+write.csv( mtsdf,"C:\\Users\\Jimpo\\Desktop\\SocialNetworkProject\\mdsdf.csv")
+write.csv( ttoa,"C:\\Users\\Jimpo\\Desktop\\SocialNetworkProject\\ttoa.csv")
+write.csv( tt,"C:\\Users\\Jimpo\\Desktop\\SocialNetworkProject\\tt.csv")
+
+mtdfJSON <- toJSON(mtdf)
+jsonlite::write_json(mtdfJSON, "C:\\Users\\Jimpo\\Desktop\\SocialNetworkProject\\mtdfJSON.json")
