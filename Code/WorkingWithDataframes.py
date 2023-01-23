@@ -1,6 +1,8 @@
 #Questo file conterrà il codice in python utilizzato per creare grafi dai dataframe ricavati nel codice in R
 import matplotlib.pyplot as plt
 
+import io
+
 import numpy as np
 
 import pandas as pd
@@ -30,12 +32,11 @@ from nltk.classify import SklearnClassifier
 
 from subprocess import check_output
 
-ttdf = pd.read_csv("C:\\Users\\Jimpo\\Desktop\\SNAgithub\\csv\\ttoa.csv")
-#display(TweetsXLSX)
+"""
+# PEZZO DI CODICE PER CREAZIONE DEL WORDCLOUD
+ttoadf = pd.read_csv("C:\\Users\\Jimpo\\Desktop\\SNAgithub\\csv\\ttoa.csv")
 
-data = ttdf[['tweet_text','Sentiment']]
-
-#pezzo di codice per creare un wordcloud
+data = ttoadf[['tweet_text','Sentiment']]
 
 #split del dataset in trai e test
 train,test = train_test_split(data, test_size = 0.1)
@@ -64,12 +65,18 @@ def wordcloud_draw(data, color = 'black'):
     plt.imshow(wordcloud)
     plt.axis('off')
     plt.show()
-    
+
 print("Positive words")
 wordcloud_draw(train_pos_text, 'white')
 print("Negative words")
 wordcloud_draw(train_neg_text, 'black')
+"""
 
+ttdf = pd.read_csv("C:\\Users\\Jimpo\\Desktop\\SNAgithub\\csv\\tt.csv")
+x = ttdf['created_at'].astype(str)
+#plt.plot(x, color = 'g', label = "Tweets frequency")
+plt.plot(x, x.count(), label = "Tweets frequency")
+plt.show()
 
 """
 TweetsXLSX['full_text'] = TweetsXLSX['full_text'].astype(str).str.lower()

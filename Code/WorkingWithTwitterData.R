@@ -53,8 +53,6 @@ barplot(tweetdatand$retweet_count,# y = tweetdatand$id,
 
 plot(ylab="", x=table(tweetdatand$created_at), ylim = c(0,30))
 
-#SENTIMENT ANALYSIS DA CAPIRE COME STRUTTURARE
-
 #Sentiment analysis fatto prima su excel per analizzare lo score di ogni tweet
 #il sentiment analysis di excel ha limiti per numero di tweet che può analizzare (max 25mb)
 
