@@ -73,10 +73,9 @@ wordcloud_draw(train_neg_text, 'black')
 """
 
 ttdf = pd.read_csv("C:\\Users\\Jimpo\\Desktop\\SNAgithub\\csv\\tt.csv")
-x = ttdf['created_at'].astype(str)
+x = ttdf['created_at'].str[:-5] #eliminato gli ultimi n caratteri dalla stringa
 #plt.plot(x, color = 'g', label = "Tweets frequency")
-plt.plot(x, x.count(), label = "Tweets frequency")
-plt.show()
+
 
 """
 TweetsXLSX['full_text'] = TweetsXLSX['full_text'].astype(str).str.lower()
