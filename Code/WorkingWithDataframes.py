@@ -16,13 +16,13 @@ import nltk
 from nltk.tokenize import RegexpTokenizer
 from nltk.corpus import stopwords
 
-TweetsXLSX = pd.read_csv("C:\\Users\\Jimpo\\Desktop\\SNAgithub\\SocialNetworkAnalysisProject\\Dataframes\\xlsx\\TweetTotali.xlsx")
+ttdf = pd.read_csv("C:\\Users\\Jimpo\\Desktop\\SNAgithub\\csv\\tt.csv")
 #display(TweetsXLSX)
 
-TweetsXLSX.head()
+ttdf.head()
 
-x = TweetsXLSX['full_text']
-y = TweetsXLSX['id']
+x = ttdf['full_text']
+y = ttdf['id']
 
 """
 TweetsXLSX['full_text'] = TweetsXLSX['full_text'].astype(str).str.lower()
