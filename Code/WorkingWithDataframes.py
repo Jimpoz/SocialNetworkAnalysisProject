@@ -1,20 +1,30 @@
 #Questo file conterrà il codice in python utilizzato per creare grafi dai dataframe ricavati nel codice in R
 import matplotlib.pyplot as plt
+
 import numpy as np
+
 import pandas as pd
+
 import cufflinks as cf
+
 import plotly
 import plotly.graph_objs as go
+
 from IPython.display import display
+
 import re
+
 import sklearn
 from sklearn.model_selection import train_test_split
+
 import wordcloud
 from wordcloud import WordCloud, STOPWORDS
+
 import nltk
 #nltk.download()
 from nltk.tokenize import RegexpTokenizer
 from nltk.corpus import stopwords
+from nltk.classify import SklearnClassifier
 
 ttdf = pd.read_csv("C:\\Users\\Jimpo\\Desktop\\SNAgithub\\csv\\tt.csv")
 #display(TweetsXLSX)
