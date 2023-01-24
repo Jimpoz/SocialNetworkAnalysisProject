@@ -35,8 +35,9 @@ from subprocess import check_output
 from plotnine import * 
 #%matplotlib inline
 
-"""
+
 # PEZZO DI CODICE PER CREAZIONE DEL WORDCLOUD
+#WORDCLOUD
 ttoadf = pd.read_csv("C:\\Users\\Jimpo\\Desktop\\SNAgithub\\csv\\ttoa.csv")
 
 data = ttoadf[['tweet_text','Sentiment']]
@@ -73,23 +74,10 @@ print("Positive words")
 wordcloud_draw(train_pos_text, 'white')
 print("Negative words")
 wordcloud_draw(train_neg_text, 'black')
-"""
+
 
 ttdf = pd.read_csv("C:\\Users\\Jimpo\\Desktop\\SNAgithub\\csv\\tt.csv", dtype = {'created_at':'str'}, low_memory=False )
-#x=ttdf['created_at'].str[:-9].astype(str)#eliminato gli ultimi n caratteri dalla stringa
-#plt.plot(x, x.value_counts())
-#ttdf.head()
 
-#ttdf['created_at'].value_counts()[ttdf['created_at']].plot(kind='bar')
-
-#ttdf['created_at'].value_counts()[:600000].plot(kind='barh')
-
-#create a frequency graf from ttdf column created_at
-
-# Plot the frequency of the word "climate" in the tweets of the first 10 days
-#ttdf['created_at'].str[:-9].value_counts()[:10].plot(kind='barh')
-
-# Plot a line histogram of the number of tweets per day
 ttdf['created_at'].str[:-9].value_counts().sort_index().plot(kind='line')
 
 plt.show()
