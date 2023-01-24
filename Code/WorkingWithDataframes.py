@@ -102,12 +102,26 @@ plt.show()
 #ttdf.to_csv("C:\\Users\\Jimpo\\Desktop\\SNAgithub\\csv\\ttdf.csv", index=False)
 '''
 
-#plot the sentiments of the tweets in the dataset ttdf
+# collect positive tweets
 import textblob
 from textblob import TextBlob
 ttdf = pd.read_csv("C:\\Users\\Jimpo\\Desktop\\SNAgithub\\csv\\tt.csv", dtype = {'created_at':'str'}, low_memory=False )
 ttdf['full_text'] = ttdf['full_text'].astype(str)
 ttdf['Sentiment'] = ttdf['full_text'].apply(lambda tweet: TextBlob(tweet).sentiment.polarity)
 ttdf['Sentiment'] = ttdf['Sentiment'].apply(lambda x: 'positive' if x > 0 else ('negative' if x < 0 else 'neutral'))
-plt.show(ttdf.groupby('Sentiment')['full_text'].count().plot(kind='bar'))
-#ttdf.to_csv("C:\\Users\\Jimpo\\Desktop\\SNAgithub\\csv\\ttdf.csv", index=False)
+
+'''
+ttdf = ttdf[ttdf.Sentiment != "neutral"]
+ttdf = ttdf[ttdf.Sentiment != "negative"]
+ttdf = ttdf[ttdf.full_text != "nan"]
+ttdf = ttdf[ttdf.full_text != "None"]
+ttdf = ttdf[ttdf.full_text != "NaN"]
+ttdf = ttdf[ttdf.full_text != "Nan"]
+ttdf = ttdf[ttdf.full_text != "NAN"]
+ttdf = ttdf[ttdf.full_text != "None"]
+ttdf = ttdf[ttdf.full_text != "none"]
+ttdf = ttdf[ttdf.full_text != "NONE"]
+ttdf = ttdf[ttdf.full_text != "null"]
+ttdf = ttdf[ttdf.full_text != "Null"]
+ttdf = ttdf[ttdf.full_text != "NULL"]
+'''
