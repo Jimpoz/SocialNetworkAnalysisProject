@@ -36,6 +36,8 @@ from plotnine import *
 #%matplotlib inline
 
 
+'''
+
 # PEZZO DI CODICE PER CREAZIONE DEL WORDCLOUD
 #WORDCLOUD
 ttoadf = pd.read_csv("C:\\Users\\Jimpo\\Desktop\\SNAgithub\\csv\\ttoa.csv")
@@ -74,10 +76,38 @@ print("Positive words")
 wordcloud_draw(train_pos_text, 'white')
 print("Negative words")
 wordcloud_draw(train_neg_text, 'black')
+'''
+
+'''
+# plot a bipartite graph of the network
+import networkx as nx
+ttoadf = pd.read_csv("C:\\Users\\Jimpo\\Desktop\\SNAgithub\\csv\\ttoa.csv")
+
+#plot line chart with sentiments over time from dataset
+ttoadf['date'] = pd.to_datetime(ttoadf['date'])
+plt.show(ttoadf.groupby('date')['Sentiment'].value_counts().unstack().plot())
 
 
+
+
+
+#sentiment analysis of ttdf dataset
+import textblob
+from textblob import TextBlob
 ttdf = pd.read_csv("C:\\Users\\Jimpo\\Desktop\\SNAgithub\\csv\\tt.csv", dtype = {'created_at':'str'}, low_memory=False )
-
-ttdf['created_at'].str[:-9].value_counts().sort_index().plot(kind='line')
-
+ttdf['full_text'] = ttdf['full_text'].astype(str)
+ttdf['Sentiment'] = ttdf['full_text'].apply(lambda tweet: TextBlob(tweet).sentiment.polarity)
+ttdf['Sentiment'] = ttdf['Sentiment'].apply(lambda x: 'positive' if x > 0 else ('negative' if x < 0 else 'neutral'))
 plt.show()
+#ttdf.to_csv("C:\\Users\\Jimpo\\Desktop\\SNAgithub\\csv\\ttdf.csv", index=False)
+'''
+
+#plot the sentiments of the tweets in the dataset ttdf
+import textblob
+from textblob import TextBlob
+ttdf = pd.read_csv("C:\\Users\\Jimpo\\Desktop\\SNAgithub\\csv\\tt.csv", dtype = {'created_at':'str'}, low_memory=False )
+ttdf['full_text'] = ttdf['full_text'].astype(str)
+ttdf['Sentiment'] = ttdf['full_text'].apply(lambda tweet: TextBlob(tweet).sentiment.polarity)
+ttdf['Sentiment'] = ttdf['Sentiment'].apply(lambda x: 'positive' if x > 0 else ('negative' if x < 0 else 'neutral'))
+plt.show(ttdf.groupby('Sentiment')['full_text'].count().plot(kind='bar'))
+#ttdf.to_csv("C:\\Users\\Jimpo\\Desktop\\SNAgithub\\csv\\ttdf.csv", index=False)
