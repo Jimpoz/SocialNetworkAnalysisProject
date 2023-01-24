@@ -32,6 +32,9 @@ from nltk.classify import SklearnClassifier
 
 from subprocess import check_output
 
+from plotnine import * 
+#%matplotlib inline
+
 """
 # PEZZO DI CODICE PER CREAZIONE DEL WORDCLOUD
 ttoadf = pd.read_csv("C:\\Users\\Jimpo\\Desktop\\SNAgithub\\csv\\ttoa.csv")
@@ -81,5 +84,12 @@ ttdf = pd.read_csv("C:\\Users\\Jimpo\\Desktop\\SNAgithub\\csv\\tt.csv", dtype = 
 
 #ttdf['created_at'].value_counts()[:600000].plot(kind='barh')
 
-fig, ax = plt.subplots()
-ttdf['created_at'].value_counts().plot(ax=ax, kind='bar')
+#create a frequency graf from ttdf column created_at
+
+# Plot the frequency of the word "climate" in the tweets of the first 10 days
+#ttdf['created_at'].str[:-9].value_counts()[:10].plot(kind='barh')
+
+# Plot a line histogram of the number of tweets per day
+ttdf['created_at'].str[:-9].value_counts().sort_index().plot(kind='line')
+
+plt.show()
