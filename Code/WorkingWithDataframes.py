@@ -87,10 +87,6 @@ ttoadf = pd.read_csv("C:\\Users\\Jimpo\\Desktop\\SNAgithub\\csv\\ttoa.csv")
 ttoadf['date'] = pd.to_datetime(ttoadf['date'])
 plt.show(ttoadf.groupby('date')['Sentiment'].value_counts().unstack().plot())
 
-
-
-
-
 #sentiment analysis of ttdf dataset
 import textblob
 from textblob import TextBlob
@@ -111,8 +107,11 @@ ttdf['Sentiment'] = ttdf['Sentiment'].apply(lambda x: 'positive' if x > 0 else (
 '''
 
 import matplotlib.pyplot as plt
-ttpydf = pd.read_csv("C:\\Users\\Jimpo\\Desktop\\SNAgithub\\csv\\ttpyNoCol.csv", dtype = {'created_at':'str'}, low_memory=False )
+ttpydf = pd.read_csv("C:\\Users\\Jimpo\\Desktop\\SNAgithub\\csv\\ttpyNoCol.csv", low_memory=False )
 
-# plot a 3 line chart with sentiments from ttpydf dataset
+# plot a 3 line chart with sentiments from ttpydf dataset and reduce the y values
 ttpydf['date'] = pd.to_datetime(ttpydf['created_at']).dt.date
+#plt.show(ttpydf.groupby('date')['Sentiment'].value_counts().unstack().plot())
 plt.show(ttpydf.groupby('date')['Sentiment'].value_counts().unstack().plot())
+#clean the ylabel of the previous plot
+ 
