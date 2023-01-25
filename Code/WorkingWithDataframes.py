@@ -104,7 +104,6 @@ ttdf = pd.read_csv("C:\\Users\\Jimpo\\Desktop\\SNAgithub\\csv\\tt.csv", dtype = 
 ttdf['full_text'] = ttdf['full_text'].astype(str)
 ttdf['Sentiment'] = ttdf['full_text'].apply(lambda tweet: TextBlob(tweet).sentiment.polarity)
 ttdf['Sentiment'] = ttdf['Sentiment'].apply(lambda x: 'positive' if x > 0 else ('negative' if x < 0 else 'neutral'))
-'''
 
 import matplotlib.pyplot as plt
 ttpydf = pd.read_csv("C:\\Users\\Jimpo\\Desktop\\SNAgithub\\csv\\ttpyNoCol.csv", low_memory=False )
@@ -113,5 +112,15 @@ ttpydf = pd.read_csv("C:\\Users\\Jimpo\\Desktop\\SNAgithub\\csv\\ttpyNoCol.csv",
 ttpydf['date'] = pd.to_datetime(ttpydf['created_at']).dt.date
 #plt.show(ttpydf.groupby('date')['Sentiment'].value_counts().unstack().plot())
 plt.show(ttpydf.groupby('date')['Sentiment'].value_counts().unstack().plot())
-#clean the ylabel of the previous plot
- 
+#ho ruotato i valori nell'asse y per renderli più leggibili
+
+'''
+
+import textblob
+from textblob import TextBlob
+tweettotdf = pd.read_csv("C:\\Users\\Jimpo\\Desktop\\SNAgithub\\csv\\TweetTotali_py.csv", dtype = {'created_at':'str'}, low_memory=False )
+#get sentiment score of tweettotdf dataset
+tweettotdf['full_text'] = tweettotdf['full_text'].astype(str)
+tweettotdf['Sentiment'] = tweettotdf['full_text'].apply(lambda tweet: TextBlob(tweet).sentiment.polarity)
+tweettotdf['Sentiment'] = tweettotdf['Sentiment'].apply(lambda x: 'positive' if x > 0 else ('negative' if x < 0 else 'neutral'))
+plt.show()
