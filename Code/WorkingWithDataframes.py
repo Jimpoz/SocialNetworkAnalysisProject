@@ -100,7 +100,7 @@ ttdf['Sentiment'] = ttdf['full_text'].apply(lambda tweet: TextBlob(tweet).sentim
 ttdf['Sentiment'] = ttdf['Sentiment'].apply(lambda x: 'positive' if x > 0 else ('negative' if x < 0 else 'neutral'))
 plt.show()
 #ttdf.to_csv("C:\\Users\\Jimpo\\Desktop\\SNAgithub\\csv\\ttdf.csv", index=False)
-'''
+
 
 # collect positive tweets
 import textblob
@@ -110,7 +110,7 @@ ttdf['full_text'] = ttdf['full_text'].astype(str)
 ttdf['Sentiment'] = ttdf['full_text'].apply(lambda tweet: TextBlob(tweet).sentiment.polarity)
 ttdf['Sentiment'] = ttdf['Sentiment'].apply(lambda x: 'positive' if x > 0 else ('negative' if x < 0 else 'neutral'))
 
-'''
+
 ttdf = ttdf[ttdf.Sentiment != "neutral"]
 ttdf = ttdf[ttdf.Sentiment != "negative"]
 ttdf = ttdf[ttdf.full_text != "nan"]
@@ -125,3 +125,13 @@ ttdf = ttdf[ttdf.full_text != "null"]
 ttdf = ttdf[ttdf.full_text != "Null"]
 ttdf = ttdf[ttdf.full_text != "NULL"]
 '''
+import textblob
+from textblob import TextBlob
+ttdf = pd.read_csv("C:\\Users\\Jimpo\\Desktop\\SNAgithub\\csv\\tt.csv", dtype = {'created_at':'str'}, low_memory=False )
+
+# collect positive tweets from ttdf dataset
+ttdf['full_text'] = ttdf['full_text'].astype(str)
+ttdf['Sentiment'] = ttdf['full_text'].apply(lambda tweet: TextBlob(tweet).sentiment.polarity)
+ttdf['Sentiment'] = ttdf['Sentiment'].apply(lambda x: 'positive' if x > 0 else ('negative' if x < 0 else 'neutral'))
+ttdf = ttdf[ttdf.Sentiment != "neutral"]
+ttdf = ttdf[ttdf.Sentiment != "negative"]
