@@ -101,37 +101,18 @@ ttdf['Sentiment'] = ttdf['Sentiment'].apply(lambda x: 'positive' if x > 0 else (
 plt.show()
 #ttdf.to_csv("C:\\Users\\Jimpo\\Desktop\\SNAgithub\\csv\\ttdf.csv", index=False)
 
-
-# collect positive tweets
 import textblob
 from textblob import TextBlob
 ttdf = pd.read_csv("C:\\Users\\Jimpo\\Desktop\\SNAgithub\\csv\\tt.csv", dtype = {'created_at':'str'}, low_memory=False )
+
 ttdf['full_text'] = ttdf['full_text'].astype(str)
 ttdf['Sentiment'] = ttdf['full_text'].apply(lambda tweet: TextBlob(tweet).sentiment.polarity)
 ttdf['Sentiment'] = ttdf['Sentiment'].apply(lambda x: 'positive' if x > 0 else ('negative' if x < 0 else 'neutral'))
-
-
-ttdf = ttdf[ttdf.Sentiment != "neutral"]
-ttdf = ttdf[ttdf.Sentiment != "negative"]
-ttdf = ttdf[ttdf.full_text != "nan"]
-ttdf = ttdf[ttdf.full_text != "None"]
-ttdf = ttdf[ttdf.full_text != "NaN"]
-ttdf = ttdf[ttdf.full_text != "Nan"]
-ttdf = ttdf[ttdf.full_text != "NAN"]
-ttdf = ttdf[ttdf.full_text != "None"]
-ttdf = ttdf[ttdf.full_text != "none"]
-ttdf = ttdf[ttdf.full_text != "NONE"]
-ttdf = ttdf[ttdf.full_text != "null"]
-ttdf = ttdf[ttdf.full_text != "Null"]
-ttdf = ttdf[ttdf.full_text != "NULL"]
 '''
-import textblob
-from textblob import TextBlob
-ttdf = pd.read_csv("C:\\Users\\Jimpo\\Desktop\\SNAgithub\\csv\\tt.csv", dtype = {'created_at':'str'}, low_memory=False )
 
-# collect positive tweets from ttdf dataset
-ttdf['full_text'] = ttdf['full_text'].astype(str)
-ttdf['Sentiment'] = ttdf['full_text'].apply(lambda tweet: TextBlob(tweet).sentiment.polarity)
-ttdf['Sentiment'] = ttdf['Sentiment'].apply(lambda x: 'positive' if x > 0 else ('negative' if x < 0 else 'neutral'))
-ttdf = ttdf[ttdf.Sentiment != "neutral"]
-ttdf = ttdf[ttdf.Sentiment != "negative"]
+import matplotlib.pyplot as plt
+ttpydf = pd.read_csv("C:\\Users\\Jimpo\\Desktop\\SNAgithub\\csv\\ttpyNoCol.csv", dtype = {'created_at':'str'}, low_memory=False )
+
+# plot a 3 line chart with sentiments from ttpydf dataset
+ttpydf['date'] = pd.to_datetime(ttpydf['created_at']).dt.date
+plt.show(ttpydf.groupby('date')['Sentiment'].value_counts().unstack().plot())
