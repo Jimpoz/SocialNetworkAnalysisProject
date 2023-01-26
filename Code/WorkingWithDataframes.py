@@ -136,3 +136,6 @@ plt.ylabel("Subjectivity")
 plt.show()
 
 '''
+
+mtspydf = pd.read_csv("C:\\Users\\Jimpo\\Desktop\\SNAgithub\\csv\\mtsSubScorepydf.csv", dtype = {'created_at':'str'}, low_memory=False )
+#PLOT BUBBLE GRAPH OF SENTIMENT SCORE AND NUMBER OF TWEETS FROM mtspydf dataset
