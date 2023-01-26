@@ -122,10 +122,17 @@ tweettotdf['full_text'] = tweettotdf['full_text'].astype(str)
 tweettotdf['Sentiment'] = tweettotdf['full_text'].apply(lambda tweet: TextBlob(tweet).sentiment.polarity)
 tweettotdf['Sentiment'] = tweettotdf['Sentiment'].apply(lambda x: 'positive' if x > 0 else ('negative' if x < 0 else 'neutral'))
 plt.show()
+
+mtspydf = pd.read_csv("C:\\Users\\Jimpo\\Desktop\\SNAgithub\\csv\\mtsSubScorepydf.csv", dtype = {'created_at':'str'}, low_memory=False )
+# draw a scatter plot with polarity and subjectivity of the mtspydf dataset
+#mtspydf = pd.read_csv("C:\\Users\\Jimpo\\Desktop\\SNAgithub\\csv\\mtspydf.csv", dtype = {'created_at':'str'}, low_memory=False )
+#mtspydf['score'] = mtspydf['full_text'].apply(lambda tweet: TextBlob(tweet).sentiment.subjectivity)
+#mtspydf['polarity'] = mtspydf['full_text'].apply(lambda tweet: TextBlob(tweet).sentiment.polarity)
+#mtspydf.to_csv("C:\\Users\\Jimpo\\Desktop\\SNAgithub\\csv\\mtsSubScorepydf.csv", index=False)
+plt.scatter(mtspydf['polarity'], mtspydf['score'], color='black', alpha=0.15)
+plt.title('Subjectivity and Polarity in Sentiment Analysis')
+plt.xlabel("Polarity")
+plt.ylabel("Subjectivity")
+plt.show()
+
 '''
-
-
-import textblob
-from textblob import TextBlob
-tweettotdf = pd.read_csv("C:\\Users\\Jimpo\\Desktop\\SNAgithub\\csv\\TweetTotali_py.csv", dtype = {'created_at':'str'}, low_memory=False )
-#plot a bipartite graph of positive and negative tweets of tweettotdf dataset
