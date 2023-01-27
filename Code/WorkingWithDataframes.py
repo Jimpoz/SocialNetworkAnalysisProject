@@ -149,8 +149,9 @@ G.add_nodes_from(mtspydf['id'], bipartite=0)
 G.add_nodes_from(mtspydf['Sentiment'], bipartite=1)
 #G.add_edges_from(mtspydf['id'], mtspydf['Sentiment'], 1)
 G.add_edges_from([(mtspydf['id'], mtspydf['Sentiment'])])
-'''
+
 #bipartite.is_bipartite(G) controllo se il grafo è bipartita
 G = nx.from_pandas_edgelist(mtspydf, source='id', target='Sentiment', edge_attr='score')
 nx.draw(G, with_labels=True, font_weight='bold')
 #add id and sentiment as nodes
+'''
