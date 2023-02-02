@@ -201,7 +201,6 @@ plt.title('Distribution of the scores of the tweets')
 plt.xlabel('score')
 plt.ylabel('number of tweets')
 plt.show()
-'''
 
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -213,4 +212,40 @@ plt.scatter(mtspydf['polarity'], mtspydf['score'], color=mtspydf['color'], alpha
 plt.title('Subjectivity and Polarity in Sentiment Analysis')
 plt.xlabel("Polarity")
 plt.ylabel("Subjectivity")
+plt.show()
+'''
+dfTotPy = pd.read_csv("C:\\Users\\Jimpo\\Desktop\\SNAgithub\\csv\\mtsSubScorepydf.csv", dtype = {'created_at':'str'}, low_memory=False )
+
+fig1 = plt.figure(figsize=(10, 5))
+
+#add the first subplot of the english tweets
+ax1 = fig1.add_subplot(221)
+ax1.set_title('English')
+ax1.set_ylabel('Number of tweets')
+ax1.set_xlabel('Sentiment')
+ax1.bar(['negative', 'neutral', 'positive'], dfTotPy[dfTotPy['lang'] == 'en'].groupby('Sentiment').count()['score'], color=['red', 'grey', 'green'])
+
+#add the second subplot of the italian tweets
+ax2 = fig1.add_subplot(222)
+ax2.set_title('Italian')
+ax2.set_ylabel('Number of tweets')
+ax2.set_xlabel('Sentiment')
+ax2.bar(['negative', 'neutral', 'positive'], dfTotPy[dfTotPy['lang'] == 'it'].groupby('Sentiment').count()['score'], color=['red', 'grey', 'green'])
+
+#add the third subplot of the spanish tweets
+ax3 = fig1.add_subplot(223)
+ax3.set_title('Spanish')
+ax3.set_ylabel('Number of tweets')
+ax3.set_xlabel('Sentiment')
+ax3.bar(['negative', 'neutral', 'positive'], dfTotPy[dfTotPy['lang'] == 'es'].groupby('Sentiment').count()['score'], color=['red', 'grey', 'green'])
+ 
+#add the fourth subplot of the french tweets
+ax4 = fig1.add_subplot(224)
+ax4.set_title('French')
+ax4.set_ylabel('Number of tweets')
+ax4.set_xlabel('Sentiment')
+ax4.bar(['negative', 'neutral', 'positive'], dfTotPy[dfTotPy['lang'] == 'fr'].groupby('Sentiment').count()['score'], color=['red', 'grey', 'green'])
+ 
+#adjust the spacing between the subplots
+plt.subplots_adjust(wspace=0.5, hspace=0.5)
 plt.show()
