@@ -153,7 +153,7 @@ nx.draw(G, with_labels=True, font_weight='bold')
 #add id and sentiment as nodes
 
 
-#template per creare scatter plot con diversi sentimenti
+#creazione diversi scatter plot per ogni sentimento
 import matplotlib.pyplot as plt
 import numpy as np
 import networkx as nx
@@ -162,9 +162,27 @@ import seaborn as sns
 
 dfTotPy = pd.read_csv('C:\\Users\\Jimpo\\Desktop\\SNAgithub\\csv\\mtsSubScorepydf.csv')
 dfpos = dfTotPy[dfTotPy['Sentiment'] == 'neutral']
-plt.scatter(dfpos['polarity'], dfpos['score'], color='grey', alpha=0.15)
+plt.scatter(dfpos['polarity'], dfpos['score'], color='grey', alpha=0.05)
 plt.xlim(-1, 1)
 plt.title('Subjectivity and Polarity of Neutral Tweets')
+plt.xlabel("Polarity")
+plt.ylabel("Subjectivity")
+plt.show()
+
+dfTotPy = pd.read_csv('C:\\Users\\Jimpo\\Desktop\\SNAgithub\\csv\\mtsSubScorepydf.csv')
+dfpos = dfTotPy[dfTotPy['Sentiment'] == 'positive']
+plt.scatter(dfpos['polarity'], dfpos['score'], color='green', alpha=0.05)
+plt.xlim(-1, 1)
+plt.title('Subjectivity and Polarity of Positive Tweets')
+plt.xlabel("Polarity")
+plt.ylabel("Subjectivity")
+plt.show()
+
+dfTotPy = pd.read_csv('C:\\Users\\Jimpo\\Desktop\\SNAgithub\\csv\\mtsSubScorepydf.csv')
+dfpos = dfTotPy[dfTotPy['Sentiment'] == 'negative']
+plt.scatter(dfpos['polarity'], dfpos['score'], color='red', alpha=0.05)
+plt.xlim(-1, 1)
+plt.title('Subjectivity and Polarity of Negative Tweets')
 plt.xlabel("Polarity")
 plt.ylabel("Subjectivity")
 plt.show()
