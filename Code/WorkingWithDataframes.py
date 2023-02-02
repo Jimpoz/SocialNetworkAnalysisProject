@@ -163,6 +163,8 @@ import seaborn as sns
 dfTotPy = pd.read_csv('C:\\Users\\Jimpo\\Desktop\\SNAgithub\\csv\\mtsSubScorepydf.csv')
 dfpos = dfTotPy[dfTotPy['Sentiment'] == 'neutral']
 plt.scatter(dfpos['polarity'], dfpos['score'], color='grey', alpha=0.05)
+plt.scatter(dfpos['polarity'], dfpos['score'], color='green', alpha=0.05)
+plt.scatter(dfpos['polarity'], dfpos['score'], color='red', alpha=0.05)
 plt.xlim(-1, 1)
 plt.title('Subjectivity and Polarity of Neutral Tweets')
 plt.xlabel("Polarity")
@@ -171,7 +173,6 @@ plt.show()
 
 dfTotPy = pd.read_csv('C:\\Users\\Jimpo\\Desktop\\SNAgithub\\csv\\mtsSubScorepydf.csv')
 dfpos = dfTotPy[dfTotPy['Sentiment'] == 'positive']
-plt.scatter(dfpos['polarity'], dfpos['score'], color='green', alpha=0.05)
 plt.xlim(-1, 1)
 plt.title('Subjectivity and Polarity of Positive Tweets')
 plt.xlabel("Polarity")
@@ -180,13 +181,12 @@ plt.show()
 
 dfTotPy = pd.read_csv('C:\\Users\\Jimpo\\Desktop\\SNAgithub\\csv\\mtsSubScorepydf.csv')
 dfpos = dfTotPy[dfTotPy['Sentiment'] == 'negative']
-plt.scatter(dfpos['polarity'], dfpos['score'], color='red', alpha=0.05)
 plt.xlim(-1, 1)
 plt.title('Subjectivity and Polarity of Negative Tweets')
 plt.xlabel("Polarity")
 plt.ylabel("Subjectivity")
 plt.show()
-'''
+
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -200,4 +200,17 @@ plt.hist(dfTotPy['score'], bins=20, color='grey')
 plt.title('Distribution of the scores of the tweets')
 plt.xlabel('score')
 plt.ylabel('number of tweets')
+plt.show()
+'''
+
+import matplotlib.pyplot as plt
+import pandas as pd
+mtspydf = pd.read_csv("C:\\Users\\Jimpo\\Desktop\\SNAgithub\\csv\\mtsSubScorepydf.csv", dtype = {'created_at':'str'}, low_memory=False )
+mtspydf.loc[mtspydf['Sentiment'] == 'positive', 'color'] = 'green'
+mtspydf.loc[mtspydf['Sentiment'] == 'negative', 'color'] = 'red'
+mtspydf.loc[mtspydf['Sentiment'] == 'neutral', 'color'] = 'grey'
+plt.scatter(mtspydf['polarity'], mtspydf['score'], color=mtspydf['color'], alpha=0.15)
+plt.title('Subjectivity and Polarity in Sentiment Analysis')
+plt.xlabel("Polarity")
+plt.ylabel("Subjectivity")
 plt.show()
