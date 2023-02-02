@@ -135,15 +135,12 @@ plt.xlabel("Polarity")
 plt.ylabel("Subjectivity")
 plt.show()
 
-'''
-
 import networkx as nx
 import pandas as pd
 from networkx.algorithms import bipartite
 
 mtspydf = pd.read_csv("C:\\Users\\Jimpo\\Desktop\\SNAgithub\\csv\\mtsSubScorepydf.csv", dtype = {'created_at':'str'}, low_memory=False )
 #PLOT BUBBLE GRAPH OF SENTIMENT SCORE AND NUMBER OF TWEETS FROM mtspydf dataset
-'''
 G = nx.Graph()
 G.add_nodes_from(mtspydf['id'], bipartite=0)
 G.add_nodes_from(mtspydf['Sentiment'], bipartite=1)
@@ -154,4 +151,21 @@ G.add_edges_from([(mtspydf['id'], mtspydf['Sentiment'])])
 G = nx.from_pandas_edgelist(mtspydf, source='id', target='Sentiment', edge_attr='score')
 nx.draw(G, with_labels=True, font_weight='bold')
 #add id and sentiment as nodes
+
+
+#template per creare scatter plot con diversi sentimenti
+import matplotlib.pyplot as plt
+import numpy as np
+import networkx as nx
+import pandas as pd
+import seaborn as sns
+
+dfTotPy = pd.read_csv('C:\\Users\\Jimpo\\Desktop\\SNAgithub\\csv\\mtsSubScorepydf.csv')
+dfpos = dfTotPy[dfTotPy['Sentiment'] == 'neutral']
+plt.scatter(dfpos['polarity'], dfpos['score'], color='grey', alpha=0.15)
+plt.xlim(-1, 1)
+plt.title('Subjectivity and Polarity of Neutral Tweets')
+plt.xlabel("Polarity")
+plt.ylabel("Subjectivity")
+plt.show()
 '''
