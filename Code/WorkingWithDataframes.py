@@ -187,3 +187,17 @@ plt.xlabel("Polarity")
 plt.ylabel("Subjectivity")
 plt.show()
 '''
+
+import matplotlib.pyplot as plt
+import numpy as np
+import networkx as nx
+import pandas as pd
+import seaborn as sns
+
+dfTotPy = pd.read_csv('C:\\Users\\Jimpo\\Desktop\\SNAgithub\\csv\\mtsSubScorepydf.csv')
+plt.hist(dfTotPy['score'], bins=20, color='grey')
+
+plt.title('Distribution of the scores of the tweets')
+plt.xlabel('score')
+plt.ylabel('number of tweets')
+plt.show()
