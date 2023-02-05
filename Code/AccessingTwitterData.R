@@ -18,10 +18,7 @@ library(syuzhet)
 
 
 #chiavi fornite da twitter per accedere all'API
-consumer_key <- "VI1W3qB5fCYvq3MO9vBC9CdH7"
-consumer_secret <- "DGrrha8SFhA6smYT8ua3PhIOyOhuH4ZyVHY5hA9fDXVjPPUp5m"
-access_token <- "750009430540943360-ca6slbZtRmcuOsfYmFxoIHAPQBDbVb1"
-access_secret <- "PHEy4UyQtTUParRDbBJG6DvIUHBpkVUZOhYV2z1VXgSo0"
+#rimosse per motivi di sicurezza
 
 #creazione auth per la libreria twitteR
 setup_twitter_oauth(consumer_key, consumer_secret, access_token, access_secret)
