@@ -18,7 +18,8 @@ library(syuzhet)
 
 
 #chiavi fornite da twitter per accedere all'API
-#rimosse per motivi di sicurezza
+#rimosse per motivi di sicurezza e privacy
+#le chiavi sono state rigenerate quindi quelle presenti nei vecchi file non sono più valide
 
 #creazione auth per la libreria twitteR
 setup_twitter_oauth(consumer_key, consumer_secret, access_token, access_secret)
