@@ -1,46 +1,176 @@
-\documentclass[12pt]{article}
-\usepackage{lingmacros}
-\usepackage{tree-dvips}
+\documentclass[
+  manuscript=article,  %% article (default), rescience, data, or software
+  layout=preprint,  %% preprint (for submission) or publish (for publisher only)
+  year=20xx,
+  volume=x,
+]{extra/joas}
+
+\doi{10.74800/joas.x.xxxx}
+
+
+\received {1 April 2022}
+\revised  {1 May 2022}
+\accepted {10 May 2022}
+\published{20 May 2022}
+\editor{Editor Name}
+\reviewers{First Reviewer, Second Reviewer, Third Reviewer}
+
+
+% --- blew is the area for authors ---
+
+
+\usepackage[english]{babel}
+\usepackage{blindtext}
+
+% specify the .bib file for references
+\addbibresource{reference.bib} 
+
+% Make sure your article tile is within 12 words
+\title{Using a concise title for your article}
+
+\author{First Author}
+\affiliation{Institution-1, City, Country}
+\email{correspondence@email.domain}
+
+\author{Second Author}
+\affiliation{Institution-2, City, Country}
+
+\author{Third Author}
+\alsoaffiliation{Institution-1, City, Country}
+\affiliation{Institution-3, City, Country}
+
+
+% maximum five keywords
+\keywords{keyword; keyword one; keywork two} 
+
+% Important, only index abbreviation if a term contains more than two words, and the term is used more than ten times throughout the paper. Otherwise, spell them out in full in the paper.
+\abbreviations{
+    JOAS: Journal of Open Aviation Science, 
+    ATM: Air Traffic Managment
+}
+
+
 \begin{document}
 
-\section*{Notes for My Paper}
+\begin{abstract}
+  An abstract summarizes in one paragraph with 300 words or less, the major aspects of the entire paper. They often include: 1) the overall purpose of the study and the research problem you investigated; 2) the basic design of you research approach; 3) major findings as a result of your analysis; and, 4) a brief summary of your interpretations and conclusions. 
+\end{abstract}
 
-Don't forget to include examples of topicalization.
-They look like this:
 
-{\small
-\enumsentence{Topicalization from sentential subject:\\ 
-\shortex{7}{a John$_i$ [a & kltukl & [el & 
-  {\bf l-}oltoir & er & ngii$_i$ & a Mary]]}
-{ & {\bf R-}clear & {\sc comp} & 
-  {\bf IR}.{\sc 3s}-love   & P & him & }
-{John, (it's) clear that Mary loves (him).}}
-}
+\section{Introduction}
 
-\subsection*{How to handle topicalization}
+\blindtext 
+Some example open open-source research data \cite{schafer2014bringing} and tools \cite{olive2019traffic}. 
 
-I'll just assume a tree structure like (\ex{1}).
 
-{\small
-\enumsentence{Structure of A$'$ Projections:\\ [2ex]
-\begin{tabular}[t]{cccc}
-    & \node{i}{CP}\\ [2ex]
-    \node{ii}{Spec} &   &\node{iii}{C$'$}\\ [2ex]
-        &\node{iv}{C} & & \node{v}{SAgrP}
-\end{tabular}
-\nodeconnect{i}{ii}
-\nodeconnect{i}{iii}
-\nodeconnect{iii}{iv}
-\nodeconnect{iii}{v}
-}
-}
+\blindtext [2]
 
-\subsection*{Mood}
 
-Mood changes when there is a topic, as well as when
-there is WH-movement.  \emph{Irrealis} is the mood when
-there is a non-subject topic or WH-phrase in Comp.
-\emph{Realis} is the mood when there is a subject topic
-or WH-phrase.
+\section{Method}
+
+\subsection{Method part 1}
+
+\blindtext The end result is in Figure \ref{fig:logo}.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.6\textwidth]{figures/joas-logo.pdf}
+  \caption{JOAS Logo}
+  \label{fig:logo}
+\end{figure}
+
+\blindtext\footnote{This is how a footnote works.}
+
+\subsection{Method part 2}
+
+\subsubsection{Method part 2-1}
+
+\blindtext Reference to Equation \ref{eq:cauchy_momentum}.
+
+\begin{equation} \label{eq:cauchy_momentum}
+\rho\frac{\mathrm{D} \mathbf{u}}{\mathrm{D} t} = - \nabla p + \nabla \cdot \boldsymbol \tau + \rho\,\mathbf{g}
+\end{equation}
+
+
+\subsubsection{Method part 2-2}
+
+\blindtext Table \ref{tb:example_table} shows an example.
+
+\begin{table}[H]
+  \centering
+  \small
+  \caption{Example table}
+  \label{tb:example_table}
+  \begin{tabular}{lll}
+  \toprule
+  \textbf{Parameter} & \textbf{Notation} & \textbf{Remarks} \\
+  \midrule
+  name & - & engine common identifier \\
+  manufacture & - & name of the manufacture  \\
+  bpr & $\lambda$ & bypass ratio \\
+  pr & - & pressure ratio \\
+  thrust & $T_0$ & maximum static thrust\\
+  \bottomrule
+  \end{tabular}
+\end{table}
+
+\blindtext
+
+
+\section{Discussions}
+
+\paragraph{Paragraph title} This is the paragraph with title if you want to use such function in the paper. \blindtext
+
+
+\section{Conclusion}
+
+\blindtext
+
+
+\appendix
+
+\section{Supplementary figures}
+\blindtext
+
+\section{Supplementary tables}
+\blindtext
+
+
+\begin{acknowledgement}
+  Include your acknowledgement in this section.
+\end{acknowledgement}
+
+% Author contributions (CRediT) are mandatory for all papers with more than one author
+\begin{credit}
+  If the paper has more than one author, the CRediT section must be included. See example usage on \url{https://casrai.org/credit/}
+
+  \begin{itemize}
+    \item First Author: Conceptualization, Methodology, Software, Writing- Original draft
+    \item Second Author: Data curation, Writing- Original draft
+    \item Third Author: Visualization, Investigation
+  \end{itemize}
+\end{credit}
+
+
+\begin{funding}
+  When applicable, please specify the funding information for this research.
+\end{funding}
+
+
+% Data statement is mandatory for all papers
+\begin{opendata}
+  DOI and short description to supplementary data.
+\end{opendata}
+
+% reproducibility statement is mandatory for all papers
+\begin{reproduce}
+Information on how to reproduce this research, including access to 1) source code related the research, 2) source code for the figures, 3) source code / data for the tables when applicable.
+\end{reproduce}
+
+
+
+\printbibliography
+
+
 
 \end{document}
