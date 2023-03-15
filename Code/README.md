@@ -1,2 +1,0 @@
-The code in here is deprecated and not utilized in the final project.
-The following files contain lines of code that were used to gather data from the Twitter API and to create the graphs and for testing purposes.
