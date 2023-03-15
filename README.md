@@ -4,5 +4,6 @@ Contiente il codice e le informazioni ricavate per il progetto del corso di soci
 I programmi sono stati scritti in Python e R.
 L'API utilizzato è della piattaforma social di Twitter.
 
-##The idea behind the project
+## The Idea behind the Project
 
+We came up with the idea of analysing the emotion and behaviour of users on a social media platform
