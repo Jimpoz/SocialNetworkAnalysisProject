@@ -1,4 +1,4 @@
-# SSocial Network Analysis project
+# Social Network Analysis project
 
 This is a brief introduction to the project that we worked on the the Social Network Analysis course at the university of venice Ca' Foscari
 
