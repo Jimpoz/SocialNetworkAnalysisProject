@@ -55,5 +55,8 @@ For every period there will be:
 - Histograms
 - Networks
 - Clustered Networks
+- Etc...
 
-TO ADD AND FIX
+## What are we trying to answer?
+
+We asked ourselves if there really was this need to damage pieces of art in order to make some people acknowledge the climate crisis and observed if it really had an impact on the twitter community.
