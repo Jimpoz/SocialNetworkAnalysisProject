@@ -74,11 +74,11 @@ After this kind of analysis we also compared the MRE analysis of the period befo
 
 ![Percentage_Change](https://user-images.githubusercontent.com/79638739/225742406-841ee6cd-d9fd-4d21-a63a-00863fd5f97a.png)
 
-**Disclaime**: The MRE (Most Relevant Emotion) is a function that I manually created to determine a person's overall opinion on a topic, it might be unreliable and return faulty data.
+**Disclaimer!** : The MRE (Most Relevant Emotion) is a function that I manually created to determine a person's overall opinion on a topic, it might be unreliable and return faulty data.
 
 ***
 
-## What are we trying to answer
+## What we are trying to answer
 
 - Were their actions really necessary to make people acknowledge the climate crisis?
 - What did people really think of the protesters? Did they really changed their mind?
