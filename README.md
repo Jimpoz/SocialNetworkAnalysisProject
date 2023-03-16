@@ -68,7 +68,9 @@ After this kind of analysis we also compared the MRE analysis of the period befo
 ***
 Here below we can see the MRE bar char that represents the most relevant emotions per user regarding the first event in the list mentioned earlier followed by a pie chart that displays how many have changed their opinion after the incident occurred
 
-![MRE_before_after](https://user-images.githubusercontent.com/79638739/225742401-6e20b942-e8a8-4762-a519-53aa7f6de872.png)
+![MRE_before_after](https://user-images.githubusercontent.com/79638739/225744509-7291f0ea-28a2-4bbb-be26-93bb27baafff.png)
+
+
 ![Percentage_Change](https://user-images.githubusercontent.com/79638739/225742406-841ee6cd-d9fd-4d21-a63a-00863fd5f97a.png)
 
 ***
