@@ -2,7 +2,7 @@
 
 This is a brief introduction to the project that we worked on the the Social Network Analysis course at the university of venice Ca' Foscari
 
-The project is a sentiment analysis of Twitter users
+The project is based on sentiment analysis of Twitter users and their opinions and behaviour towards environmental movements.
 
 ## The Idea behind the Project
 
