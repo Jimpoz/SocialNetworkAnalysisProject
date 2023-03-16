@@ -64,9 +64,7 @@ Example of data visualization with gephi:
 
 ***
 
-After this kind of analysis we also compared the MRE analysis of the period before and after to determine if there has been some changes in users opinions, for example:
-***
-Here below we can see the MRE bar char that represents the most relevant emotions per user regarding the first event in the list mentioned earlier followed by a pie chart that displays how many have changed their opinion after the incident occurred
+After this kind of analysis we also compared the MRE analysis of the period before and after to determine if there has been some changes in users opinions, for example here below we can see the MRE bar chart that represents the most relevant emotions per user regarding the Louvre event followed by a pie chart that displays how many have changed their opinion after the incident occurred
 
 ![MRE_before_after](https://user-images.githubusercontent.com/79638739/225744509-7291f0ea-28a2-4bbb-be26-93bb27baafff.png)
 
