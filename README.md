@@ -57,6 +57,22 @@ For every period there will be:
 - Clustered Networks
 - Etc...
 
+***
+Example of data visualization with gephi:
+
+![Mention_network_D5](https://user-images.githubusercontent.com/79638739/225742930-a8321e6e-ffa4-4ae7-83bc-07355fd667b6.png)
+
+***
+
+After this kind of analysis we also compared the MRE analysis of the period before and after to determine if there has been some changes in users opinions, for example:
+***
+Here below we can see the MRE bar char that represents the most relevant emotions per user regarding the first event in the list mentioned earlier followed by a pie chart that displays how many have changed their opinion after the incident occurred
+
+![MRE_before_after](https://user-images.githubusercontent.com/79638739/225742401-6e20b942-e8a8-4762-a519-53aa7f6de872.png)
+![Percentage_Change](https://user-images.githubusercontent.com/79638739/225742406-841ee6cd-d9fd-4d21-a63a-00863fd5f97a.png)
+
+***
+
 ## What are we trying to answer?
 
 We asked ourselves if there really was this need to damage pieces of art in order to make some people acknowledge the climate crisis and observed if it really had an impact on the twitter community.
