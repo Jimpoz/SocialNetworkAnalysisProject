@@ -16,9 +16,12 @@ First we picked four specific incidents that happened in 4 different countries t
 - National Gallery of Art
 - Prado's Museum
 
-Each event involves an environmental activist trying to convey their message to prevent the climate crisis through their actions by damaging pieces of art that were displayed inside very famous museums.
+Each event involves an environmental activist who was trying to convey their message through their actions by damaging pieces of art that were being displayed inside very famous museums.
 
-First of all the social media we decided to work on is Twitter with to the following library:
+
+### Where did the analysis take place?
+
+We decided to collect all the needed data from twitter through the following library:
 
 ```
 pip install SNScrape
@@ -26,7 +29,7 @@ pip install SNScrape
 import snscrape.modules.twitter as sntwitter
 ```
 
-Thanks to this library we were able to scrape older tweets since the Twitter API V2 had a limit of 7 days.
+Thanks to this library we were able to scrape older tweets since the Twitter API V2 had very limited access to older tweets.
 
 After collecting the necessary data we decided to observe the users behaviour and their expressed emotions through various NLP algorithms such as TextBlob
 ( ``` import TextBlob ``` ) and Vader:
@@ -71,8 +74,14 @@ After this kind of analysis we also compared the MRE analysis of the period befo
 
 ![Percentage_Change](https://user-images.githubusercontent.com/79638739/225742406-841ee6cd-d9fd-4d21-a63a-00863fd5f97a.png)
 
+**Disclaime**: The MRE (Most Relevant Emotion) is a function that I manually created to determine a person's overall opinion on a topic, it might be unreliable and return faulty data.
+
 ***
 
-## What are we trying to answer?
+## What are we trying to answer
 
-We asked ourselves if there really was this need to damage pieces of art in order to make some people acknowledge the climate crisis and observed if it really had an impact on the twitter community.
+- Were their actions really necessary to make people acknowledge the climate crisis?
+- What did people really think of the protesters? Did they really changed their mind?
+- How did they react to the security of museum?
+
+For more detailed information read the Report [here](https://github.com/Jimpoz/SocialNetworkAnalysisProject/blob/main/Report/Final_Version/SNA_Report.docx).
