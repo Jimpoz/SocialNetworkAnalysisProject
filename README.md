@@ -39,7 +39,7 @@ pip3 install git+https://github.com/JustAnotherArchivist/snscrape.git
 With these tool we could retrieve data from any moment in time unlike the Twitter API V2.
 
 After collecting the necessary data we decided to observe the users behaviour and their expressed emotions through various NLP algorithms such as TextBlob
-( ``` import TextBlob ``` ) and Vader.
+( ` import TextBlob ` ) and Vader.
 
 VADER( Valence Aware Dictionary for Sentiment Reasoning) is an NLTK module that provides sentiment scores based on the words used
 
