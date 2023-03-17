@@ -72,7 +72,9 @@ For every period there will be a sentiment analysis which will return the follow
 - Etc...
 
 ***
-Example of data visualization with gephi:
+Example of data visualization of a mention network with gephi:
+
+The followin network has been filtered showing nodes that only have degree > 5 to simplify the data visualization
 
 ![Mention_network_D5](https://user-images.githubusercontent.com/79638739/225742930-a8321e6e-ffa4-4ae7-83bc-07355fd667b6.png)
 
