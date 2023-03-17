@@ -1,6 +1,6 @@
 # Social Network Analysis project
 
-This is a brief introduction to the project that we worked on the the Social Network Analysis course at the university of venice Ca' Foscari
+This is a brief introduction to the project that we worked on the Social Network Analysis course at the university of venice Ca' Foscari
 
 The project is based on sentiment analysis of Twitter users and their opinions and behaviour towards environmental movements.
 
@@ -21,7 +21,7 @@ Each event involves an environmental activist who was trying to convey their mes
 
 ### Where did the analysis take place?
 
-We decided to collect all the needed data from twitter since it's a social media platform with an insane amount of information.
+We decided to collect all the needed data from twitter since it's a social media platform with an incredible amount of information.
 
 SNScrape was used for data collection which is a scraper for social networking services (SNS). It scrapes things like user profiles, hashtags, or searches and returns the discovered items.
 
@@ -74,7 +74,7 @@ For every period there will be a sentiment analysis which will return the follow
 ***
 Example of data visualization of a mention network with gephi:
 
-The followin network has been filtered showing nodes that only have degree > 5 to simplify the data visualization
+The following network has been filtered and will show only the nodes that have degree > 5 to simplify the data visualization
 
 ![Mention_network_D5](https://user-images.githubusercontent.com/79638739/225742930-a8321e6e-ffa4-4ae7-83bc-07355fd667b6.png)
 
