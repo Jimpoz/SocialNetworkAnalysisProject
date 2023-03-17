@@ -21,18 +21,29 @@ Each event involves an environmental activist who was trying to convey their mes
 
 ### Where did the analysis take place?
 
-We decided to collect all the needed data from twitter through the following library:
+We decided to collect all the needed data from twitter since it's a social media platform with an insane amount of information.
 
+SNScrape was used for data collection which is a scraper for social networking services (SNS). It scrapes things like user profiles, hashtags, or searches and returns the discovered items.
+
+### Installation
 ```
 pip install SNScrape
 
 import snscrape.modules.twitter as sntwitter
 ```
+For the development verions
+```
+pip3 install git+https://github.com/JustAnotherArchivist/snscrape.git
+```
 
-Thanks to this library we were able to scrape older tweets since the Twitter API V2 had very limited access to older tweets.
+With these tool we could retrieve data from any moment in time unlike the Twitter API V2.
 
 After collecting the necessary data we decided to observe the users behaviour and their expressed emotions through various NLP algorithms such as TextBlob
-( ``` import TextBlob ``` ) and Vader:
+( ` import TextBlob ` ) and Vader.
+
+VADER( Valence Aware Dictionary for Sentiment Reasoning) is an NLTK module that provides sentiment scores based on the words used
+
+### Installation and Usage
 ``` 
 #downloading the vader lexicon
 nltk.download('vader_lexicon')
@@ -44,16 +55,16 @@ from nltk.sentiment.vader import SentimentIntensityAnalyzer
 sent_analyzer = SentimentIntensityAnalyzer()
 ```
 
-Both of the previous mentioned algorithms estimate the polarity and emotion expressed by a user through an analysis of the tweet text
+Both of the previous mentioned algorithms estimate the polarity and emotion expressed by a user through an analysis of the tweet text.
 
-We decided to use the Vader algorithm since it is slightly more accurate than TextBlob
+We decided to use the Vader algorithm since it is slightly more accurate than TextBlob.
 
 ## How?
 
-For each event the data collected has been split into 2 periods: 15 days before the event and 15 days after.
+For each event the data collected has been split into 2 periods, 15 days before the event and 15 days after, to get a rough estimate of people's opinion and also due to the Recency Bias it is unnecessary to get tweets that aren't close to the occurrence.
 
-For every period there will be:
-- Mention Network
+For every period there will be a sentiment analysis which will return the following graphs:
+- Mention Networks (with gephi and networkx)
 - MRE (Most Relevant Emotion per user)
 - Histograms
 - Networks
@@ -61,13 +72,15 @@ For every period there will be:
 - Etc...
 
 ***
-Example of data visualization with gephi:
+Example of data visualization of a mention network with gephi:
+
+The followin network has been filtered showing nodes that only have degree > 5 to simplify the data visualization
 
 ![Mention_network_D5](https://user-images.githubusercontent.com/79638739/225742930-a8321e6e-ffa4-4ae7-83bc-07355fd667b6.png)
 
 ***
 
-After this kind of analysis we also compared the MRE analysis of the period before and after to determine if there has been some changes in users opinions, for example here below we can see the MRE bar chart that represents the most relevant emotions per user regarding the Louvre event followed by a pie chart that displays how many have changed their opinion after the incident occurred
+After the data analysis process we also compared the MRE analysis of the period before and after to determine whether there have been changes in users opinions, for example here below we can observe the MRE bar chart that represents the most relevant emotions per user regarding the Louvre event followed by a pie chart that displays how many have actually changed their overall opinion after the incident occurred.
 
 ![MRE_before_after](https://user-images.githubusercontent.com/79638739/225744509-7291f0ea-28a2-4bbb-be26-93bb27baafff.png)
 
@@ -81,7 +94,7 @@ After this kind of analysis we also compared the MRE analysis of the period befo
 ## What we are trying to answer
 
 - Were their actions really necessary to make people acknowledge the climate crisis?
-- What did people really think of the protesters? Did they really changed their mind?
-- How did they react to the security of museum?
+- What did people really think of the protesters? Did they really change their mind?
+- How did they react to the security systems of museums?
 
 For more detailed information read the Report [here](https://github.com/Jimpoz/SocialNetworkAnalysisProject/blob/main/Report/Final_Version/SNA_Report.docx).
