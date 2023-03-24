@@ -98,3 +98,7 @@ After the data analysis process we also compared the MRE analysis of the period 
 - How did they react to the security systems of museums?
 
 For more detailed information read the Report [here](https://github.com/Jimpoz/SocialNetworkAnalysisProject/blob/main/Report/Final_Version/SNA_Report.docx).
+
+
+## DISCLAIMER
+This is a simple university project that might return faulty data due to data sparsity or wrong data collection and evaluation.
